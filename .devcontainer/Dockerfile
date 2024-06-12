@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/devcontainers/python:3.10
 ENV PYTHONUNBUFFERED 1
 
 WORKDIR /
-COPY src/requirements.txt
+COPY src/requirements.txt .
 
 ENV CONDA_PREFIX=/azureml-envs/ai-development-env
 ENV CONDA_DEFAULT_ENV=$CONDA_PREFIX
