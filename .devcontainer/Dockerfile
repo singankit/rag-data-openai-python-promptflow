@@ -1,4 +1,5 @@
 FROM mcr.microsoft.com/devcontainers/python:3.10
+ENV PYTHONUNBUFFERED 1
 
 WORKDIR /
 
@@ -9,6 +10,10 @@ ENV LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
 
 # needed for build_mlindex
 RUN apt update && apt install -y fuse
+
+RUN pip3 install virtualenv
+RUN python3 -m venv venv
+ENV PATH="/venv/bin:$PATH"
 
 # Install Python SDK
 COPY src/requirements.txt .
