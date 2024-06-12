@@ -14,9 +14,9 @@ RUN apt update && apt install -y fuse
 RUN pip3 install virtualenv
 RUN python3 -m venv venv
 ENV PATH="/venv/bin:$PATH"
+RUN pip3 install --upgrade pip
+RUN pip3 cache purge
 
 # Install Python SDK
 COPY src/requirements.txt
-RUN pip3 install --upgrade pip
-RUN pip3 cache purge
 RUN pip3 install -r requirements.txt 
