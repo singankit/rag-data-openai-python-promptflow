@@ -2,6 +2,7 @@ FROM mcr.microsoft.com/devcontainers/python:3.10
 ENV PYTHONUNBUFFERED 1
 
 WORKDIR /
+COPY src/requirements.txt
 
 ENV CONDA_PREFIX=/azureml-envs/ai-development-env
 ENV CONDA_DEFAULT_ENV=$CONDA_PREFIX
@@ -18,5 +19,4 @@ RUN pip3 install --upgrade pip
 RUN pip3 cache purge
 
 # Install Python SDK
-COPY src/requirements.txt
 RUN pip3 install -r requirements.txt 
