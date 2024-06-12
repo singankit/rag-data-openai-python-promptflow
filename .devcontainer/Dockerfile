@@ -12,4 +12,6 @@ RUN apt update && apt install -y fuse
 
 # Install Python SDK
 COPY src/requirements.txt .
+RUN pip install --upgrade pip
+RUN pip cache purge
 RUN pip install -r requirements.txt 
